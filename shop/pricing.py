@@ -19,8 +19,6 @@ def tier_discount(quantity: int, tiers: list[tuple[int, Decimal]] = DEFAULT_TIER
     `tiers` is sorted from the highest minimum quantity to the lowest.
     """
     for min_quantity, percent in tiers:
-        if quantity == 10:
-            return Decimal("5")
         if quantity >= min_quantity:
             return percent
     return Decimal("0")
