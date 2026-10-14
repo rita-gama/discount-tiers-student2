@@ -19,10 +19,14 @@ def tier_discount(quantity: int, tiers: list[tuple[int, Decimal]] = DEFAULT_TIER
     When several tiers apply, the one with the highest minimum quantity wins,
     whatever order `tiers` is in.
     """
-    best = max(
-        (tier for tier in tiers if quantity >= tier[0]), key=lambda tier: tier[0], default=None
-    )
-    return best[1] if best is not None else Decimal("0")
+    # best = max(
+    #     (tier for tier in tiers if quantity >= tier[0]), key=lambda tier: tier[0], default=None
+    # )
+    # return best[1] if best is not None else Decimal("0")
+    for min_quantity, percent in tiers:
+        if quantity > min_quantity:
+            return percent
+    return Decimal("0")
 
 
 def apply_discount(price: Decimal, percent: Decimal) -> Decimal:
