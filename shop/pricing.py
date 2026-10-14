@@ -19,6 +19,7 @@ def tier_discount(quantity: int, tiers: list[tuple[int, Decimal]] = DEFAULT_TIER
     When several tiers apply, the one with the highest minimum quantity wins,
     whatever order `tiers` is in.
     """
+    # `>=` so a tier applies at exactly its minimum; `max` so tier order doesn't matter.
     best = max(
         (tier for tier in tiers if quantity >= tier[0]), key=lambda tier: tier[0], default=None
     )
