@@ -1,4 +1,4 @@
-"""Volume pricing for the shop."""
+"""Volume pricing for the shop"""
 
 from decimal import ROUND_HALF_UP, Decimal
 
