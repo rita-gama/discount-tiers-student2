@@ -1,4 +1,4 @@
-"""Shopping cart totals."""
+"""Shopping cart totals"""
 
 from decimal import Decimal
 
